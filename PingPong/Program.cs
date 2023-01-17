@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading;
 
 namespace PingPong
 {
@@ -21,6 +22,15 @@ namespace PingPong
             int rightRacketHeight = 0;
             int leftRacketHeight = 0;
 
+            //Adding the Ball
+            int ballX = fieldLength / 2;
+            int ballY = fieldWidth / 2;
+            const char ballTile = 'O';
+
+            //Adding Ball Directions
+            bool isBallGoingDown = true;
+            bool isBallGoingRight = true;
+
             while (true)
             {
                 Console.SetCursorPosition(0, 0);
@@ -37,13 +47,33 @@ namespace PingPong
                     Console.WriteLine(racketTile);
                 }
 
-                //Here we are implementing players movement
+                
 
                 while (!Console.KeyAvailable)
                 {
+                    Console.SetCursorPosition(ballX, ballY);
+                    Console.WriteLine(ballTile);
+                    Thread.Sleep(100);
 
+                    if (isBallGoingDown)
+                    {
+                        ballY++;
+                    }
+                    else
+                    {
+                        ballY--;
+                    }
+                    if (isBallGoingRight)
+                    {
+                        ballX++;
+                    }
+                    else
+                    {
+                        ballX--;
+                    }
                 }
 
+                //Here we are implementing players movement
                 switch (Console.ReadKey().Key)
                 {
                     //'UpArrow' == 'W'
