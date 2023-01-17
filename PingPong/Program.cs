@@ -36,6 +36,48 @@ namespace PingPong
                     Console.SetCursorPosition(fieldLength - 1, i + 1 + rightRacketHeight);
                     Console.WriteLine(racketTile);
                 }
+
+                //Here we are implementing players movement
+
+                while (!Console.KeyAvailable)
+                {
+
+                }
+
+                switch (Console.ReadKey().Key)
+                {
+                    //'UpArrow' == 'W'
+                    case ConsoleKey.UpArrow:
+                        if (rightRacketHeight > 0)
+                        {
+                            rightRacketHeight--;
+                        }
+                        break;
+
+                    //'DownArrow' == 'S'
+                    case ConsoleKey.DownArrow:
+                        if (rightRacketHeight < fieldWidth - racketLength - 1)
+                        {
+                            rightRacketHeight++;
+                        }
+                        break;
+
+                    //'UpArrow' == 'W'
+                    case ConsoleKey.W:
+                        if (rightRacketHeight > 0)
+                        {
+                            leftRacketHeight--;
+                        }
+                        break;
+
+                    //'DownArrow' == 'S'
+                    case ConsoleKey.S:
+                        if (rightRacketHeight < fieldWidth - racketLength - 1)
+                        {
+                            leftRacketHeight++;
+                        }
+                        break;
+                }
             }
 
         }
