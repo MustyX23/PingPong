@@ -78,6 +78,15 @@ namespace PingPong
                         }
                         break;
                 }
+
+                //Fix - now the old lines are being removed!
+                for (int i = 1; i < fieldWidth; i++)
+                {
+                    Console.SetCursorPosition(0, i);
+                    Console.WriteLine(' ');
+                    Console.SetCursorPosition(fieldLength - 1, i);
+                    Console.WriteLine(' ');
+                }
             }
 
         }
