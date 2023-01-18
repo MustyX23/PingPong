@@ -181,12 +181,13 @@ namespace PingPong
             Console.SetCursorPosition(0, 0);
             if (rightPlayerPoints == 10)
             {
-                Console.WriteLine("Congratulations RightPlayer WON!");
+                Console.WriteLine("Right Player WON!");
             }
             else if (leftPlayerPoints == 10)
             {
-                Console.WriteLine("Congratulations LeftPlayer WON!");
+                Console.WriteLine("Left Player WON!");
             }
+
         }
     }
 }
