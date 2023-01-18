@@ -31,6 +31,10 @@ namespace PingPong
             bool isBallGoingDown = true;
             bool isBallGoingRight = true;
 
+            //Adding Points to the left/right player
+            int leftPlayerPoints = 0;
+            int rightPlayerPoints = 0;
+
             while (true)
             {
                 Console.SetCursorPosition(0, 0);
@@ -70,6 +74,37 @@ namespace PingPong
                     else
                     {
                         ballX--;
+                    }
+                    //Potential fix of Ball's trajectory 
+                    if (ballY == 1 || ballY == fieldWidth - 1)
+                    {
+                        isBallGoingDown = !isBallGoingDown;
+                    }
+                    if (ballX == 1)
+                    {
+                        if (ballY >= leftRacketHeight + 1 && ballY <= leftRacketHeight + racketLength)
+                        {
+                            isBallGoingRight = !isBallGoingRight;
+                        }
+                        else
+                        {
+                            rightPlayerPoints++;
+                            ballY = fieldWidth / 2;
+                            ballX = fieldLength / 2;
+                        }
+                    }
+                    if (ballX == fieldLength - 2)
+                    {
+                        if (ballY >= rightRacketHeight + 1 && ballY <= rightRacketHeight + racketLength)
+                        {
+                            isBallGoingRight = !isBallGoingRight;
+                        }
+                        else
+                        {
+                            leftPlayerPoints++;
+                            ballY = fieldWidth / 2;
+                            ballX = fieldLength / 2;
+                        }
                     }
                 }
 
