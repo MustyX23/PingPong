@@ -100,6 +100,12 @@ namespace PingPong
                             ballX = fieldLength / 2;
                             Console.SetCursorPosition(scoreBoardX, scoreBoardY);
                             Console.WriteLine($"{leftPlayerPoints} | {rightPlayerPoints}");
+
+                            //Electing a Winner!
+                            if (rightPlayerPoints == 10)
+                            {
+                                goto outer;
+                            }
                         }
                     }
                     if (ballX == fieldLength - 2)
@@ -115,6 +121,11 @@ namespace PingPong
                             ballX = fieldLength / 2;
                             Console.SetCursorPosition(scoreBoardX, scoreBoardY);
                             Console.WriteLine($"{leftPlayerPoints} | {rightPlayerPoints}");
+
+                            if (leftPlayerPoints == 10)
+                            {
+                                goto outer;
+                            }
                         }
                     }
                 }
@@ -165,6 +176,17 @@ namespace PingPong
                 }
             }
 
+        outer:;
+            Console.Clear();
+            Console.SetCursorPosition(0, 0);
+            if (rightPlayerPoints == 10)
+            {
+                Console.WriteLine("Congratulations RightPlayer WON!");
+            }
+            else if (leftPlayerPoints == 10)
+            {
+                Console.WriteLine("Congratulations LeftPlayer WON!");
+            }
         }
     }
 }
