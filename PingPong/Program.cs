@@ -31,9 +31,12 @@ namespace PingPong
             bool isBallGoingDown = true;
             bool isBallGoingRight = true;
 
-            //Adding Points to the left/right player
+            //Adding ScoreBoard to the PingPong game
             int leftPlayerPoints = 0;
             int rightPlayerPoints = 0;
+
+            int scoreBoardX = fieldLength / 2 - 2;
+            int scoreBoardY = fieldWidth + 3;
 
             while (true)
             {
@@ -57,7 +60,11 @@ namespace PingPong
                 {
                     Console.SetCursorPosition(ballX, ballY);
                     Console.WriteLine(ballTile);
+
                     Thread.Sleep(100);
+
+                    Console.SetCursorPosition(ballX, ballY);
+                    Console.WriteLine(' ');
 
                     if (isBallGoingDown)
                     {
@@ -91,6 +98,8 @@ namespace PingPong
                             rightPlayerPoints++;
                             ballY = fieldWidth / 2;
                             ballX = fieldLength / 2;
+                            Console.SetCursorPosition(scoreBoardX, scoreBoardY);
+                            Console.WriteLine($"{leftPlayerPoints} | {rightPlayerPoints}");
                         }
                     }
                     if (ballX == fieldLength - 2)
@@ -104,6 +113,8 @@ namespace PingPong
                             leftPlayerPoints++;
                             ballY = fieldWidth / 2;
                             ballX = fieldLength / 2;
+                            Console.SetCursorPosition(scoreBoardX, scoreBoardY);
+                            Console.WriteLine($"{leftPlayerPoints} | {rightPlayerPoints}");
                         }
                     }
                 }
